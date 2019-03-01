@@ -46,7 +46,7 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - "Fn:GetAtt": [ NotesTable, Arn ]
+        - "Fn::GetAtt": [ NotesTable, Arn ]
 
 functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
@@ -119,6 +119,7 @@ resources:
   # DynamoDB
   - ${file(resources/dynamodb-table.yml)}
    # S3
-  - ${file{resources/s3-bucket.yml}}
+  - ${file(resources/s3-bucket.yml)}
   # Cognito
-  - ${file{resources/cognito-user-pool.yml}}
+  - ${file(resources/cognito-user-pool.yml)}
+   -${file(resources/cognito-identity-pool.yml)}
