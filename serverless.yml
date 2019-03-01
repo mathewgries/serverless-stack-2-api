@@ -122,7 +122,7 @@ functions:
       - http:
           path: billing
           method: post
-          cors: true            
+          cors: true
           authorizer: aws_iam
 
 # Create our resources with separate Cloudformation templates
